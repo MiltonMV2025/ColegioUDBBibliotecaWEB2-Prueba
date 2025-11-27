@@ -32,7 +32,6 @@ public class LoginServlet extends HttpServlet {
         String correo = request.getParameter("correo");
         String contrasena = request.getParameter("contrasena");
 
-
         if (correo == null || correo.isBlank() ||
                 contrasena == null || contrasena.isBlank()) {
 
@@ -45,14 +44,11 @@ public class LoginServlet extends HttpServlet {
         Usuario usuario = usuarioDAO.validarLogin(correo, contrasena);
 
         if (usuario != null) {
-
             HttpSession session = request.getSession(true);
             session.setAttribute("usuario", usuario);
 
-
             response.sendRedirect(request.getContextPath() + "/dashboard.jsp");
         } else {
-
             request.setAttribute("mensajeError", "Correo o contraseña incorrectos.");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }

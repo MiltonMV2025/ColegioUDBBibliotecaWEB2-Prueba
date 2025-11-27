@@ -23,16 +23,16 @@
     <h2>Biblioteca UDB</h2>
 
     <!-- Mensaje de error si existe -->
-    <c:if test="${not empty error}">
-        <div class="msg">${error}</div>
+    <c:if test="${not empty mensajeError}">
+        <div class="msg">${mensajeError}</div>
     </c:if>
 
     <form action="login" method="post">
-        <label>Usuario:</label>
-        <input type="text" name="usuario" required>
+        <label>Correo:</label>
+        <input type="email" name="correo" required placeholder="admin@colegio.edu.sv">
 
         <label>Contraseña:</label>
-        <input type="password" name="password" required>
+        <input type="password" name="contrasena" required placeholder="admin123">
 
         <button type="submit">Ingresar</button>
     </form>
